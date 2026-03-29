@@ -16,6 +16,7 @@
 | `legion/rollups/` | **ROLLUP 落盘说明**与正式链可选落盘位；渐进闭环收口 **§4.2 G** 须对账（见 `legion/PORTING-…`） |
 | `legion/group-space/` | **小组信息空间**（领导辖内共识；规则见 `hajimidog-legion.mdc`） |
 | `legion/PORTING-PROMPT-LEGION-MIN-REBUILD.zh-CN.md` | **外机最小重建**：单文件复刻 L3+蜂群+多波次+汇流+组空间 |
+| `PORTING-PROMPT-XWM.zh-CN.md` | **XWM 外置工作记忆**：术语（禁裸 SSM）+ 权威序 + **§0.5 进阶**（L1-MIRROR、task-reflux、口头拍板落盘）+ **可复制提示词**；不替代 `.mdc` 门禁 |
 | `legion/chains/CHAIN-MW-REBUILD-2026-03-26/` | **示例多波次 CHAIN**（元链 W1 样板） |
 | `legion/chains/CHAIN-MW-EXTERNAL-VERIFY-2026-03-26/` | **W2 外机验证链**（`REBUILD-REPORT.md`） |
 | `legion/scripts/legion-min-tree-check.ps1` | **MIN §7**：关键路径探测（仓库根执行） |
