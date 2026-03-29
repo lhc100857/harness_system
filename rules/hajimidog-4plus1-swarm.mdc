@@ -1,5 +1,5 @@
 ---
-description: 本工作区 4+1 蜂群对抗：统帅总线、Sub-agent 真隔离、蜂群编队强约束时序（R1+R2 关门→R3；R4a 与 R3 并行清单；统帅实测；R4b 关门核验）、写码回合 R3+R4a+R4b、R4 实测门禁、A/B/C、跨会话落盘与形状保持；含用户身份与意图三字段、CHAIN/ROUND、TC-B/TC-E、可重复脚本工具链、主帅上下文生命周期管理（三层模型/CHAIN-STATE/delta汇流/EP归档/pinned摘要/会话切割）。**满编蜂群**（专用口令，见正文）才强制 R1–R4a/R4b 五段 Task；与 **军团架构满编**（仅展开 EX·MG·OP，见 `hajimidog-legion.mdc`）分立。触发话术另含 蜂群、4+1、子代理、Task、R1–R4、R4a/R4b、对抗、验收、P0、PASS/FAIL、CHAIN-STATE、delta、会话切割 等。执行细则与路由表见技能 08/09/11/12/13/14/16/22。
+description: 本工作区 4+1 蜂群对抗：统帅总线、Sub-agent 真隔离、蜂群编队强约束时序（R1+R2 关门→R3；R4a 与 R3 并行清单；统帅实测；R4b 关门核验）、写码回合 R3+R4a+R4b、R4 实测门禁、A/B/C、跨会话落盘与形状保持；含用户身份与意图三字段、CHAIN/ROUND、TC-B/TC-E、可重复脚本工具链、主帅上下文生命周期管理（三层模型/CHAIN-STATE/delta汇流/EP归档/pinned摘要/会话切割）。**满编蜂群**（专用口令，见正文）才强制 R1–R4a/R4b 五段 Task；与 **军团架构满编**（仅展开 EX·MG·OP，见 `hajimidog-legion.mdc`）分立。触发话术另含 蜂群、4+1、子代理、Task、R1–R4、R4a/R4b、对抗、验收、P0、PASS/FAIL、CHAIN-STATE、delta、会话切割、**记忆接力/记接力/摘要后接力**（见「记忆接力」专节）等。执行细则与路由表见技能 08/09/11/12/13/14/16/22。
 alwaysApply: true
 ---
 
@@ -283,6 +283,24 @@ alwaysApply: true
 - **`resume` 边界**：同任务链、同角色跟进优先 **`resume` 同 Agent ID**（平台可用时）；**契约或目标变更**时须新开 Task 或在汇流中声明 **断 resume、重冻结**，禁止假装连续上下文。  
 - **会话切割与接力**：主帅窗口达到 **≥15 轮（军团）/ ≥20 轮（蜂群）** 或 **≥50k token 估算** 时，**强烈建议**切割会话；同一 P0 连续 3 轮 FAIL 时**强制切割**并 R1+R2 重入。切割时须写 **HANDOFF** 文件（路径 `.cursor/swarm/chains/{CHAIN-ID}/HANDOFF-R{N}.md`，内容 = active 冻结条 + P0 + Gate 进度 + 最近 2 轮 delta + 下轮指令）。新会话起手优先级：**HANDOFF > CHAIN-STATE > 从头**。  
 - **多窗口文件总线（`multi-window/`）**：若使用仓库内 `HANDOFF` / `inbox/current` 等人类协作稿，其与 **本 `.mdc` 及已落盘裁决**冲突时，以 **`.mdc` + 已落盘** 为准；协作稿**不得**收窄 Task 强制边界或 R4 实测门禁。
+
+### 记忆接力（用户口令 · 主帅强制读盘序）
+
+**定义**：**记忆接力**是 **XWM / 外置工作记忆**（技能 **`22` §1.1–1.2**）的**消费侧**协议：用户用固定口令要求主帅在**当轮答复内、任何派单或收口裁决之前**，按约定顺序 **Read** 落盘文件，使窗口上下文与链上 **L2/L3** 对齐。**不**表示助手可代用户触发 IDE **Summarize**（Summarize 仍须在 IDE 内操作）；口令仅约束 **Read 行为**。
+
+**同义口令（命中任一同等触发）**：`记忆接力` / `记接力` / `摘要后接力` / `外存接力` / `磁盘接力`（用户明确表达「按外置记忆恢复再继续」之同义短句可接受；**禁止**凭模糊闲聊默认当作本口令）。
+
+**强制 Read 序（本轮第一步；在派发 R3/R4b、宣布 PASS/COND_PASS/FAIL、或实质性写码/验收派单之前完成）**：
+
+1. **HANDOFF（若存在）**：`.cursor/swarm/chains/{CHAIN-ID}/HANDOFF-R{N}.md`（默认取**最大 N** 或用户指定）；军团链：`.cursor/swarm/legion/chains/{CHAIN-ID}/HANDOFF-R{N}.md`。  
+2. **`CHAIN-STATE.md` §A**（前 20 行精简下限）。若本链**尚未**创建该文件，须在答复**首段**声明「本链无 CHAIN-STATE」并据 `RECENT-DECISIONS` 与用户补述降级接续，**禁止**虚构 §A。  
+3. **（可选 · 若存在）** 同链 `L1-MIRROR.md` **最近** `### ROUND=` 块；`task-reflux/` 中与当前任务相关的摘要（见 **`22` §1.2**）。  
+4. **（按需）** `.cursor/swarm/RECENT-DECISIONS.md` 中与用户给定 **CHAIN-ID** 或当前主题相关的**最新**条目。  
+5. **军团**：本链 `MISSION-BRIEF.md` 或与本轮相关的穿透节（与 **`22` §12.3**、军团 `.mdc` Phase Gate **放行前文件安检**叠加，**不互相替代**）。
+
+**CHAIN-ID**：用户未给时须**一句追问**，或从 HANDOFF 元信息 / 对话冻结指针 **推断（标 B）** 后再读；**禁止**无标识跨链盲读。
+
+**移植**：`.cursor/swarm/记忆接力提示词.md`（通用宿主正文；`.cursor/swarm/PORTING-PROMPT-MEMORY-RELAY.zh-CN.md` 为兼容入口；**不替代**本 `.mdc` 与蜂群闸门）。
 
 ### R1/R2 产出转化义务（反孤岛 · 统帅强制）
 

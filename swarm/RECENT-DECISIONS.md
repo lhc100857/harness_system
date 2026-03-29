@@ -19,6 +19,20 @@
 
 <!-- 新条目追加在此行下方 -->
 
+### 2026-03-29 — 记忆接力提示词：泛化为通用宿主版（单一正文源）
+- **上下文**：将 `记忆接力提示词.md` 泛化，便于外机无 Hajimi 路径时仍可用。
+- **拍板**：**`记忆接力提示词.md`** 承载宿主无关的 §1 配置表、Read 序算法、中英口令示例、极简宿主块、附录 A（本仓映射）与附录 B（与 XWM 关系）；**`PORTING-PROMPT-MEMORY-RELAY.zh-CN.md`** 仅作兼容入口指向该文件；`.mdc` / `22` / `16` / `SKILL.md` / `README` 移植指针同步改为以 **`记忆接力提示词.md`** 为主。
+- **可验证依据**：Read 上述路径。
+- **残留风险 / 待决**：仅复制兼容入口而未打开正文者需依赖入口页提示。
+- **关联路径**：`.cursor/swarm/记忆接力提示词.md`，`.cursor/swarm/PORTING-PROMPT-MEMORY-RELAY.zh-CN.md`
+
+### 2026-03-29 — 记忆接力：蜂群规则专节 + 军团跨指 + PORTING 文件
+- **上下文**：用户要求将「记忆接力」写入规则，并提供可移植的 MD 提示词，与 XWM 外置写入侧配套。
+- **拍板**：蜂群 `.cursor/rules/hajimidog-4plus1-swarm.mdc` 新增 **「记忆接力」专节**（同义口令、主帅强制 Read 序、CHAIN-ID 追问/推断、不代触 IDE Summarize）；军团 `.cursor/rules/hajimidog-legion.mdc` Phase Gate 增加 **口令跨指**（先完成读盘序再满足放行安检）；新建 `.cursor/swarm/PORTING-PROMPT-MEMORY-RELAY.zh-CN.md`；技能 `22` §12.0、`16` 路由表、`00_全局索引/SKILL.md`、`swarm/README.md`、`蜂群体系升级记录.md` 互指。
+- **可验证依据**：Read 上述路径；`python .cursor/skills/hajimi-dog/skills_linter.py` → exit 0。
+- **残留风险 / 待决**：外机仅复制 PORTING 而不加载等价 `.mdc` 条款时，口令无强制力。
+- **关联路径**：`.cursor/rules/hajimidog-4plus1-swarm.mdc`，`.cursor/rules/hajimidog-legion.mdc`，`.cursor/swarm/PORTING-PROMPT-MEMORY-RELAY.zh-CN.md`，`.cursor/skills/hajimi-dog/03_AI行为准则/22_主帅上下文生命周期管理.md`，`.cursor/skills/hajimi-dog/03_AI行为准则/16_蜂群触发路由与形状保持.md`
+
 ### 2026-03-29 — IDE 摘要后 §A/军令状安检：防丢条与控长
 - **上下文**：在「防信息丢失」与「控制上下文防幻觉」之间需可执行纪律；用户要求落盘到教纲与规则。
 - **拍板**：技能 **`22` §12**：Summarize/压缩后≠A 级；蜂群在 compaction 后、摘要后首派 R3/R4b、多轮 P0 拉扯后下一轮 R3 前须 **Read CHAIN-STATE §A**；军团 **Phase Gate** 签发 PASS/COND_PASS 前须 **Read §A + 军令状相关节（`[PENETRATING]` 对原文）**。教纲 `02` 增「防丢与控长」；教纲 `03` Gate 前安检；`hajimidog-legion.mdc` / `hajimidog-4plus1-swarm.mdc` 各增一条互指 **`22` §12**；技能 `16` 路由表增 Summarize 行。

@@ -17,6 +17,8 @@
 | `legion/group-space/` | **小组信息空间**（领导辖内共识；规则见 `hajimidog-legion.mdc`） |
 | `legion/PORTING-PROMPT-LEGION-MIN-REBUILD.zh-CN.md` | **外机最小重建**：单文件复刻 L3+蜂群+多波次+汇流+组空间 |
 | `PORTING-PROMPT-XWM.zh-CN.md` | **XWM 外置工作记忆**：术语（禁裸 SSM）+ 权威序 + **§0.5 进阶**（L1-MIRROR、task-reflux、口头拍板落盘）+ **可复制提示词**；不替代 `.mdc` 门禁 |
+| `记忆接力提示词.md` | **记忆接力（通用宿主版）**：§1 配置表 + 口令 + Read 序算法 + 可复制块 + **附录 A** 本仓路径映射；外机复制首选 |
+| `PORTING-PROMPT-MEMORY-RELAY.zh-CN.md` | **兼容入口**：指向 `记忆接力提示词.md`，供旧链接与 PORTING 命名习惯 |
 | `legion/chains/CHAIN-MW-REBUILD-2026-03-26/` | **示例多波次 CHAIN**（元链 W1 样板） |
 | `legion/chains/CHAIN-MW-EXTERNAL-VERIFY-2026-03-26/` | **W2 外机验证链**（`REBUILD-REPORT.md`） |
 | `legion/scripts/legion-min-tree-check.ps1` | **MIN §7**：关键路径探测（仓库根执行） |
