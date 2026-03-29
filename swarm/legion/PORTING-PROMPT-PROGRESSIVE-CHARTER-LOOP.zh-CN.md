@@ -108,7 +108,12 @@
 
 - [ ] `WAVE-CLOSE-*.md` 已存在且 **Gap 矩阵非空**（无差则须解释为何已收敛却仍启动二波）  
 - [ ] 新 `CHAIN` 已分配；`ROUND` 自 1 起或按宿主规则递增  
-- [ ] `SCHEDULE`：**复制上波为模板后 diff**；DAG 无环 + I/O 与依赖一致后再冻结  
+- [ ] `SCHEDULE`：**复制上波为模板后 diff**；DAG 无环 + I/O 与依赖一致后再冻结
+- [ ] **阶段二～四再基线（默认，与 `hajimidog-legion.mdc`「第二波次起：阶段二～四再基线」对齐）**：下一波启动前已完成 **阶段二**（≥1 次 WebSearch + 更新版参照报告落盘）、**阶段三**（用户显式确认；零变更则 **`NO_CHANGE=YES`** + 证据指针）、**阶段四**（三件套再冻结 + bump）；或已在 `WAVE-CLOSE-*`/再启附件填齐 **`EXEMPT`/`SCOPE`/`EVIDENCE_PTR`/`RISK_OWNER`** 且与 **Gap 分级（`GAP_TRIVIAL`|`GAP_MATERIAL`）** 一致  
+- [ ] **Gap 分级已落盘**：收口或再启材料中 **Trivial/Material** 勾选与 Gap 矩阵 **可对账**  
+- [ ] **轻量再基线未串味**：若阶段二为增量，须含 **相对上波 delta 问题清单**；阶段四 bump 后的 **`SCHEDULE`/`MISSION-BRIEF`** 与 Gap **可追溯对账**  
+- [ ] **`PARTIAL_RELIGHT` 不误用为跳过二～四**：已自检 **`PARTIAL_RELIGHT=YES` 仅约束阶段五派发范围**，**不得**单独充当阶段二～四免检理由  
+- [ ] **L3 Task 重实例化（与 `hajimidog-legion.mdc`「第二波次起：阶段五」对齐）**：未在 `WAVE-CLOSE-*` 声明 **`PARTIAL_RELIGHT=YES`**（含范围、`GAP_*`、Gap 依据、用户确认）时，**须**按**本轮**冻结架构对**每一 L3 节点**再派独立 Task（新 `WAVE`/`ROUND` 锚点），重跑**阶段五**；已声明局部重开时，`SCHEDULE` diff 须显式 **`N/A` 跳过节点** + 上波证据指针  
 - [ ] `ECHO`：新表空结论；旧表归档  
 - [ ] `Mission Brief` 二期已冻结且与 Gap **可对账**  
 - [ ] （若启用）`ENVELOPE-{CHAIN}.md` 或档位已为新链初始化或继承规则已写明  
