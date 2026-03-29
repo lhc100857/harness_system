@@ -19,6 +19,41 @@
 
 <!-- 新条目追加在此行下方 -->
 
+### 2026-03-29 — IDE 摘要后 §A/军令状安检：防丢条与控长
+- **上下文**：在「防信息丢失」与「控制上下文防幻觉」之间需可执行纪律；用户要求落盘到教纲与规则。
+- **拍板**：技能 **`22` §12**：Summarize/压缩后≠A 级；蜂群在 compaction 后、摘要后首派 R3/R4b、多轮 P0 拉扯后下一轮 R3 前须 **Read CHAIN-STATE §A**；军团 **Phase Gate** 签发 PASS/COND_PASS 前须 **Read §A + 军令状相关节（`[PENETRATING]` 对原文）**。教纲 `02` 增「防丢与控长」；教纲 `03` Gate 前安检；`hajimidog-legion.mdc` / `hajimidog-4plus1-swarm.mdc` 各增一条互指 **`22` §12**；技能 `16` 路由表增 Summarize 行。
+- **可验证依据**：Read `22_主帅上下文生命周期管理.md` §12；grep `§12` / `放行前文件安检` / `IDE Summarize` 于上述路径。
+- **残留风险 / 待决**：未维护 `CHAIN-STATE.md` 的轻链仍依赖统帅显式声明风险或补 §A。
+- **关联路径**：`.cursor/skills/hajimi-dog/03_AI行为准则/22_主帅上下文生命周期管理.md`，`docs/teaching/pro-ai-hajimi-governance/02-蜂群-4+1-闸门-记忆-落盘.md`，`docs/teaching/pro-ai-hajimi-governance/03-军团-L3-流程与契约.md`，`.cursor/rules/hajimidog-legion.mdc`，`.cursor/rules/hajimidog-4plus1-swarm.mdc`，`.cursor/skills/hajimi-dog/03_AI行为准则/16_蜂群触发路由与形状保持.md`
+
+### 2026-03-29 — LEGION-ACQ-LLM-001：冻结架构 + DAG/I/O + 军令状 v1
+- **上下文**：获客软件 + 大模型后台；EX/MG 平级双节点 + 双叶 OP 各挂蜂群 L2。
+- **拍板**：新建链目录 `.cursor/swarm/legion/chains/LEGION-ACQ-LLM-001/`：`ARCHITECTURE.md`、`SCHEDULE.md`（邻接表+EP+IO+Mermaid）、`MISSION-BRIEF.md`（含 `[PENETRATING]`）、`ECHO-CHECK.md` 占位；`README` 为单一事实源指针。未覆盖根目录 `legion/ARCHITECTURE.md`（他链占用）。
+- **可验证依据**：Read 上述路径。
+- **残留风险 / 待决**：EP-0 起是否由统帅代发 Sub-agent 取决于平台；可选 DAG 边 `OP-GROWTH-OPS → OP-BACKEND-LLM` 是否采纳由产品收口。
+- **关联路径**：`.cursor/swarm/legion/chains/LEGION-ACQ-LLM-001/`
+
+### 2026-03-29 — L3 同子层级平级多节点（EX/MG 再分包）
+- **上下文**：用户希望 EX、MG 将职责进一步分给**平级**其他架构角色，而非单线单角色。
+- **拍板**：`hajimidog-legion.mdc` 增设 **「同子层级多节点（平级编组）」**：允许同一 `TIER` 多 `ROLE`、独立 Task、DAG 表达平级依赖、收口方式写入 I/O；分发/汇流/不得越级纪律按节点复用。教纲 `03` 增补示意 B 与同穿透多节点图。
+- **可验证依据**：Read 上述路径。
+- **残留风险 / 待决**：平级过多时统帅对接成本上升；可冻结 **MG 汇流收口** 或限制同层节点数（见军团 **Task 预算表**）。
+- **关联路径**：`.cursor/rules/hajimidog-legion.mdc`，`docs/teaching/pro-ai-hajimi-governance/03-军团-L3-流程与契约.md`
+
+### 2026-03-29 — 满编蜂群 vs 军团架构满编：口令分立与 L3 指挥链首选词
+- **上下文**：「满编」兼指蜂群五段与军团扩编，易误触发 R1–R4b；「三级」易与蜂群四角色混读。
+- **拍板**：蜂群 `.mdc` **仅**在命中 **满编蜂群** 专用口令（或等价五段明示）时强制 R1–R4a/R4b；孤立「满编」须追问。军团 `.mdc` 增加 **术语分立**；**军团三级指挥 / L3 指挥链 / EX·MG·OP 链** 为推荐触发；**军团架构满编 / 全编制军团 / 满编军团（仅架构）** 不触发蜂群五段。教纲 `03` 与技能 `16` 路由表同步。
+- **可验证依据**：`.cursor/rules/hajimidog-4plus1-swarm.mdc`（满编蜂群口令节）、`hajimidog-legion.mdc`（术语分立 + 话术路由）；`skills_linter.py` exit 0。
+- **残留风险 / 待决**：镜像包/他仓 `.mdc` 副本须人工同步；用户旧习惯口语「满编」需适应「满编蜂群」。
+- **关联路径**：同上 + `docs/teaching/pro-ai-hajimi-governance/03-军团-L3-流程与契约.md`，`.cursor/skills/hajimi-dog/03_AI行为准则/16_蜂群触发路由与形状保持.md`
+
+### 2026-03-29 — 军团「三级指挥」触发补全（激活条件 §3 + 触发词表 + 技能 16 路由）
+- **上下文**：用户核对「三级架构指挥」触发是否被改丢；经查 **EX/MG/OP 层级定义仍在** `hajimidog-legion.mdc`，但 **EX/MG/OP、逐级指挥、中间层发包** 等未写入显式激活与话术路由，易导致不切入军团。
+- **拍板**：在 `hajimidog-legion.mdc` 增加激活条件第 3 款（三级指挥链话术 + 排除比喻/未冻结降级情形）；扩展「触发词与话术路由」表；在 `16_蜂群触发路由与形状保持.md` 增加一行路由；教材 `03-军团-L3-流程与契约.md` 增补「何时进入」三条款摘要。
+- **可验证依据**：Read 上述路径；`python .cursor/skills/hajimi-dog/skills_linter.py` → exit 0。
+- **残留风险 / 待决**：「高管层/中层/末端」单独出现时可能与其他文档混淆；主帅仍须 **S/M/L 首轮裁量** 与一句消歧。
+- **关联路径**：`.cursor/rules/hajimidog-legion.mdc`，`.cursor/skills/hajimi-dog/03_AI行为准则/16_蜂群触发路由与形状保持.md`，`docs/teaching/pro-ai-hajimi-governance/03-军团-L3-流程与契约.md`
+
 ### 2026-03-27 — 事实核对反馈链路：G/L/O 多路升级 + 军令状修订纪律 + 蜂群权威序（满编蜂群落盘）
 - **上下文**：用户采纳「G 全局 / L 局部 / O 操作」分流、军令状须用户或用户+统帅确认方可改穿透区、EX/MG 禁冒充 R2 型 A、R4b 依附 +1 证据；要求**满编蜂群**升级体系并给移植提示词。
 - **拍板**：已修订 `.cursor/rules/hajimidog-legion.mdc`（军令状修订纪律、G/L/O 表、L3/R2 分工、`decisions_log` 推荐字段）、`.cursor/rules/hajimidog-4plus1-swarm.mdc`（事实矛盾上报互指、统帅与 R4b 权威序）；技能 `19` §2.7 + 常见误读 2 行、`20` §0.2d；新建 `.cursor/swarm/PROMPT-事实核对-GLO-多路升级-移植包-2026-03-27.zh-CN.md` 与 `legion/artifacts/FACT-ESCALATION-R4a-TC-FE.md`。
