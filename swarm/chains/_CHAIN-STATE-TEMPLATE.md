@@ -13,6 +13,7 @@ updated: {ISO-8601}  round: {N}  mode: swarm|legion
 - **active P0**: {TC-B-001(OPEN), TC-E-001(PASS)...}
 - **三字段**: {执行者(A/B)} | {人设(A/B)} | {用途(A/B)}
 - **ROUND**: {N} | **snapshot_at**: {写入时的 ROUND}
+- **open_COND_count**（可选）: {n≤8} — 第 9 条 open 时须最旧 open→expired 并风险登记，见技能 `22` §10
 
 ## §B 冻结条
 

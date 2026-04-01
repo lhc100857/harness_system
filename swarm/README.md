@@ -16,6 +16,8 @@
 | `legion/rollups/` | **ROLLUP 落盘说明**与正式链可选落盘位；渐进闭环收口 **§4.2 G** 须对账（见 `legion/PORTING-…`） |
 | `legion/group-space/` | **小组信息空间**（领导辖内共识；规则见 `hajimidog-legion.mdc`） |
 | `legion/PORTING-PROMPT-LEGION-MIN-REBUILD.zh-CN.md` | **外机最小重建**：单文件复刻 L3+蜂群+多波次+汇流+组空间 |
+| `PORTING-PROMPT-PROGRESSIVE-MEMORY-ASK.zh-CN.md` | **渐进披露 + Ask 回合**：宿主占位符、记忆接力 1～5 泛化、**§2.1 执行大环境**；与 **`渐进式记忆.md`** 同文双份，外机任选其一 |
+| `渐进式记忆.md` | 与上项 **PORTING** 正文一致（泛化移植版 + 中文文件名）；维护须双改 |
 | `PORTING-PROMPT-XWM.zh-CN.md` | **XWM 外置工作记忆**：术语（禁裸 SSM）+ 权威序 + **§0.5 进阶**（L1-MIRROR、task-reflux、口头拍板落盘）+ **可复制提示词**；不替代 `.mdc` 门禁 |
 | `统帅只负责调度.md` | **蜂群+军团治理语义泛化**：**统帅实现轨外置**、闸门摘要、外机 §7 可复制块；**权威条款**以 `hajimidog-4plus1-swarm.mdc` / `hajimidog-legion.mdc` 为准 |
 | `记忆接力提示词.md` | **记忆接力（通用宿主版）**：§1 配置表 + 口令 + Read 序算法 + 可复制块 + **附录 A** 本仓路径映射；外机复制首选 |
