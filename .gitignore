@@ -1,0 +1,48 @@
+# 蜂群 / 军团：运行时与「非技能库」落盘（正式技能在 ../skills/hajimi-dog/）
+# 本文件相对目录：仓库根/.cursor/
+# 保留：swarm/README、PORTING-*、记忆接力/统帅/XWM/渐进式记忆、multi-window 脚本与模板、legion PORTING 与 scripts、chains 模板等。
+
+# 若本目录被误作独立仓库
+.git/
+
+# --- 蜂群 swarm/（裁决、链、多窗口投递）---
+swarm/RECENT-DECISIONS.md
+swarm/蜂群体系升级记录.md
+
+swarm/decisions/**
+!swarm/decisions/_TEMPLATE.md
+
+swarm/chains/**
+!swarm/chains/_CHAIN-STATE-TEMPLATE.md
+
+swarm/multi-window/inbox/**
+!swarm/multi-window/inbox/README.md
+# 脚本生成的当前轮指针（若存在）
+swarm/multi-window/LAST-ROUND.pointer
+
+# --- 军团 swarm/legion/（任务链、演示、会话级军令状草稿；非 skills 正文）---
+swarm/legion/chains/**
+swarm/legion/group-space/**
+swarm/legion/artifacts/**
+
+# 军团 EP0 等一次性会话输出目录
+swarm/legion/ep0/**
+
+# 军团根目录会话/波次草案（与链内 MISSION 重复时亦为本地草稿）
+swarm/legion/MISSION-BRIEF.md
+swarm/legion/SCHEDULE.md
+swarm/legion/ARCHITECTURE.md
+swarm/legion/MISSION-BRIEF-V2.md
+swarm/legion/SCHEDULE-V2.md
+swarm/legion/ARCHITECTURE-V2.md
+
+# 演示与走查样例（非技能正文）
+swarm/legion/demos/**
+swarm/legion/rollup-verify-demo/**
+
+# SC 候选区（升格后应进 skills；此处为本地草稿）
+swarm/legion/skill-candidates/**
+
+# ROLLUP 可选落盘位（仅保留目录说明时可取消下行否定规则）
+swarm/legion/rollups/**
+!swarm/legion/rollups/README.md
