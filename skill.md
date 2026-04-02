@@ -2,13 +2,13 @@
 name: cursor-dot-master-index
 description: |
   【.cursor 总路由】当用户或任务涉及：蜂群、4+1、满编蜂群、五段满编、R1/R2/R3/R4、R4a/R4b、子代理、Task、对抗模式、形状保持、冻结、验收、P0、PASS/FAIL、记忆接力、CHAIN-STATE、统帅/主帅、实现轨外置、写码回合、第三方 LLM/API 集成；
-  或：军团、军团模式、L3、Legion、多部门、组织架构、兵团、EX/MG/OP、军团三级指挥、军令状、穿透、回声校验、叶 OP、满编军团、六阶段、Phase Gate、众人拾柴、skill-candidates；
-  或：改 .mdc 规则、技能维护、skills_linter、跨会话落盘、RECENT-DECISIONS、外来 cursor_skills 包/移植/桥接——须先读本文件，再按下文「必读顺序」批量 Read 对应 rules、skills 与 swarm 文档。日常纯业务编码且与治理无关时可不读。
+  或：军团、军团模式、L3、Legion、多部门、组织架构、兵团、EX/MG/OP、军团三级指挥、军令状、穿透、回声校验、叶 OP、满编军团、六阶段、Phase Gate、众人拾柴、skill-candidates、LEGION-COMPLIANCE、LEGION_LITE、轻量军团、禁止绕过、倒序交付、非工程领域阶段二、FROZEN-BUNDLE；
+  或：改 .mdc 规则、技能维护、skills_linter、跨会话落盘、RECENT-DECISIONS、外来第三方技能包桥接/移植（导入区非 `.cursor/skills/` 宿主树）——须先读本文件，再按下文「必读顺序」批量 Read 对应 rules、skills 与 swarm 文档。日常纯业务编码且与治理无关时可不读。
 ---
 
 # `.cursor` 总索引 Skill（Master Router）
 
-本文件位于 **`.cursor/skill.md`**，职责是：在**关键词命中**蜂群（L2）或军团（L3）治理时，给出 **「应读取的 Markdown / Rules 全集路由」** 与 **「技能间关联度」**，避免只依赖片段注入而漏读配套条文。**权威强制条款**仍以 **`.cursor/rules/*.mdc`** 正文为准；技能文件为阐释、模板与操作细则。
+本文件位于 **`.cursor/skill.md`**，职责是：在**关键词命中**蜂群（L2）或军团（L3）治理时，给出 **「应读取的 Markdown / Rules 全集路由」** 与 **「技能间关联度」**，避免只依赖片段注入而漏读配套条文。**权威强制条款**仍以 **`.cursor/rules/*.mdc`** 正文为准；**Cursor 项目技能**以 **`.cursor/skills/`** 下各 `SKILL.md` 为入口（本仓库主树为 **`hajimi-dog/`**），与 **外来包导入暂存区**（桥接见 **`external-cursor-pack-bridge`**）分列，勿混名。
 
 **使用纪律**
 
@@ -61,14 +61,16 @@ description: |
 - **激活**：军团、军团模式、L3、Legion、多部门、组织架构、兵团、规模 L 级、军团三级指挥、L3 指挥链。
 - **结构**：EX、MG、OP、TIER=EX|MG|OP、逐级指挥、中间层发包、逐级汇流、DAG、I/O 契约。
 - **文书与门禁**：军令状、Mission Brief、穿透、`[PENETRATING]`、回声校验、Echo Check、Phase Gate、六阶段、S/M/L、叶 OP。
+- **统帅自检与防绕过（须对表 `legion.mdc` 专节）**：LEGION-COMPLIANCE（`PHASE_MIN_DONE` / 禁止倒序交付）、**禁止绕过封闭枚举**（不得以任务小/非工程/闲聊/无仓库/先交付后补流程等省略阶段二～三）、**非工程领域**仍须阶段二 WebSearch 映射真实分工。
+- **轻量落盘（须用户明示口令）**：`轻量军团`、`LEGION_LITE`、`消费型军团` → 仅替代 `.cursor/swarm/legion/` **推荐落盘**，答复内 **`FROZEN-BUNDLE`**；**不**豁免阶段二～三；首段须 `LEGION_LITE=YES`。
 - **术语辨析**：满编军团 / 全编制军团（**不等于**蜂群五段）；**满编蜂群**见蜂群 `.mdc`。
 
 ### 2.2 必读（Rules → 军团 Skill 链）
 
 | 优先级 | 路径 | 说明 |
 |--------|------|------|
-| P0 | `.cursor/rules/hajimidog-legion.mdc` | 军团激活、六阶段、叶 OP 强制满编蜂群与蜂群 `.mdc` 并行关系、术语分立 |
-| P0 | `.cursor/rules/hajimidog-4plus1-swarm.mdc` | 末端仍由蜂群执行；底线不收窄 |
+| P0 | `.cursor/rules/hajimidog-legion.mdc` | 军团激活、六阶段、叶 OP 强制满编蜂群与蜂群 `.mdc` 并行关系、术语分立；**LEGION-COMPLIANCE**、**禁止绕过封闭枚举**、**非工程领域阶段二～三**、**LEGION_LITE** / **FROZEN-BUNDLE**、诚实边界不缩小阶段语义 |
+| P0 | `.cursor/rules/hajimidog-4plus1-swarm.mdc` | 末端仍由蜂群执行；底线不收窄；**「与军团规则的关系」**互指上文军团专节 |
 | P1 | `.cursor/skills/hajimi-dog/03_AI行为准则/18_军团模式组织架构动态生成.md` | EX/MG/OP、DAG、冻结三件套 |
 | P1 | `.cursor/skills/hajimi-dog/03_AI行为准则/19_军团模式军令状与信息穿透.md` | 军令状、穿透、环境附录 |
 | P1 | `.cursor/skills/hajimi-dog/03_AI行为准则/20_军团模式回声校验与规模裁量.md` | 回声校验、Phase Gate、S/M/L |
@@ -90,6 +92,7 @@ description: |
 
 ## 三、双模式叠加（叶 OP · 满编蜂群 · 高风险）
 
+- **军团已激活时的 +1 义务**：除 **`.cursor/rules/hajimidog-legion.mdc`** 全文外，须落实 **LEGION-COMPLIANCE**（首段 `PHASE_MIN_DONE` 等）、**禁止倒序交付**、**封闭枚举禁止绕过**；欲减轻落盘须用户明示 **`LEGION_LITE`**（见该文件专节），**禁止**助手自拟「任务小」跳阶段。
 - **叶 OP 强制满编蜂群**：见 **`.cursor/rules/hajimidog-legion.mdc`** 专条；与 **蜂群 `.mdc` 满编口令/闸门**叠加取严。
 - **高风险 / 改 `.mdc` 语义 / 集成层拍板**：蜂群 `.mdc`「高风险回合」「跨会话裁决落盘」+ 技能 **`12`**、**`14`**，并视情况 **`13`**（LLM/HTTP）。
 - **领域不熟 / 升格**：技能 **`11`**（Phase A/B + R2/R3/R1 编排）。
@@ -149,7 +152,7 @@ description: |
 
 | 路径 | 触发词 | 说明 |
 |------|--------|------|
-| `.cursor/skills/external-cursor-pack-bridge/SKILL.md` | 外来压缩包、移植、INDEX/触发词对表 | 窄触发；日常业务勿自动展开 |
+| `.cursor/skills/external-cursor-pack-bridge/SKILL.md` | 外来第三方技能包、移植、INDEX/触发词对表（§0：`.cursor/skills/` vs 导入区） | 窄触发；日常业务勿自动展开 |
 
 ---
 
@@ -167,7 +170,7 @@ description: |
 ## 七、维护清单（改仓时自检）
 
 - [ ] 新增/重命名 `hajimi-dog` 技能文件：同步 **本文件第四节** 与 **`00_全局索引/SKILL.md`**。
-- [ ] 新增蜂群/军团 **强制** 条文：优先改 **`.mdc`**，再改 `12` / 本文件路由表。
+- [ ] 新增蜂群/军团 **强制** 条文：优先改 **`.mdc`**，再改 **`12` / 本文件** 第二节触发词与 P0 表、`RECENT-DECISIONS.md`（规则语义变更时）。
 - [ ] 新增 `.cursor/swarm` 下 **契约级** 移植文档：在本文件 **1.3 / 2.3** 补一行。
 - [ ] 运行 `skills_linter.py` 防死链。
 

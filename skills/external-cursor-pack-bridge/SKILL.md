@@ -1,9 +1,19 @@
 ---
 name: external-cursor-pack-bridge
-description: 仅当用户明确提到外部 cursor_skills 压缩包/仓库、外来领域文档目录、技能移植(portability/GitBook/VSCode)、或要将「外来索引·触发词·关联度」与本仓库蜂群/治理体系对表时读取。宿主业务日常开发不要自动加载本 SKILL。
+description: 仅当用户明确提到外来技能压缩包/第三方技能仓库、外来领域文档目录、技能移植(portability/GitBook/VSCode)、或要将「外来索引·触发词·关联度」与本仓库蜂群/治理体系对表时读取。宿主业务日常开发不要自动加载本 SKILL。
 ---
 
 # 外部 Cursor 技能包 · 桥接入口（不重合并、不降级触发效率）
+
+## 0. 术语：Cursor 项目技能 vs 外来包（`.cursor` 适用）
+
+| 概念 | 路径约定（相对仓库根） | 说明 |
+|------|------------------------|------|
+| **Cursor 项目技能** | **`.cursor/skills/<技能名>/`**，入口多为 **`SKILL.md`** | Cursor 识别的本仓库技能；本宿主含 **`hajimi-dog/`**、本 **`external-cursor-pack-bridge/`** 等。 |
+| **治理总路由（可选）** | **`.cursor/skill.md`** | 蜂群/军团关键词 → rules + skills + swarm 批量必读顺序。 |
+| **外来第三方技能包** | **禁止**解压进 **`.cursor/skills/`** 以免覆盖宿主技能树 | 解压或克隆至 **导入暂存区**（见 §2），仅经本桥接 **Read** 借鉴机制，不合并异工程正文。 |
+
+第三方仓库内层目录历史上常命名为 `cursor_skills/` —— 指**对方仓库结构**，**不是**本仓库的 `.cursor/skills/`。对表时以本节 **「外来根路径」** 一行准。
 
 ## 1. 原则（与通用治理约定一致）
 
@@ -11,13 +21,17 @@ description: 仅当用户明确提到外部 cursor_skills 压缩包/仓库、外
 - **1+1＞2**：只借 **机制**（单入口索引、触发词表、关联度、操作前路由、虚拟任务预演流程）；落地条款仍以 **本仓库蜂群规则 `.mdc`**（默认文件名示例：`hajimidog-4plus1-swarm.mdc`）与 **`00_全局索引/SKILL.md`** 为准。
 - **效率**：默认 **不 Read** 外来路径；仅当本轮任务**显式**涉及外来领域或用户点名压缩包时再打开。
 
-## 2. 外来包默认落位（可改）
+## 2. 外来包默认落位（导入暂存区 · 可改）
 
-解压外来 `cursor_skills` 包后，推荐约定根目录为（**相对仓库根**）：
+将外来压缩包或克隆目录放在 **仓库根下导入区**，**勿**与 **`.cursor/skills/`**（Cursor 项目技能）混放或同名覆盖。
 
-`_import_cursor_skills/cursor_skills/`（可改为你的实际解压目录）
+**推荐默认根路径（相对仓库根）**：
 
-若移动目录，只需在本文件与 **`15_外部Cursor技能包桥接索引.md`** 中同步一行路径说明（无需改业务代码）。
+`_import/external-cursor-skills/`
+
+（若你沿用旧约定 `_import_cursor_skills/cursor_skills/` 或第三方包内层仍叫 `cursor_skills/`，只要在**本文件**与 **`15_外部Cursor技能包桥接索引.md`** 同步**一行**实际根路径即可。）
+
+**并入 Cursor 技能树时**：应复制或整理为 **`.cursor/skills/<新技能名>/SKILL.md`** 形态，并走 **`12` + `skills_linter.py`**，**禁止**把整包解压直接铺满 `.cursor/skills/` 根下。
 
 ## 3. 必读单文件路由（外来侧）
 

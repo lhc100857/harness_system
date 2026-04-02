@@ -82,10 +82,12 @@ description: 本仓库 Agent 技能全局索引 (Master Index)。用户问开发
 *   **渐进披露 + Ask 回合（外机单文件）**: `.cursor/swarm/PORTING-PROMPT-PROGRESSIVE-MEMORY-ASK.zh-CN.md`（同文 **`.cursor/swarm/渐进式记忆.md`**；宿主占位符、冷热/压缩、记忆接力 1～5 泛化、**§2.1 执行大环境**、与技能 16 路由分层分立；与 **`22` §12.4**、记忆接力配套；**非技能树内文件**)
     *   *🔗技能链条*: [热度权重: 5] `主帅上下文生命周期管理` | [热度权重: 5] `蜂群触发路由与形状保持` | [热度权重: 4] `XWM 移植提示词（外机可复制）`
 
-## 📎 外部 cursor_skills 包（可选 · 默认不加载）
+## 📎 外来第三方技能包桥接（可选 · 默认不加载）
+
+*与 **Cursor 本仓项目技能**（**`.cursor/skills/`** 下 `hajimi-dog` 等）区分：下列仅用于**外来压缩包/仓库**的机制对表，外来内容放在仓库根 **导入暂存区**（推荐 `_import/external-cursor-skills/`，见桥接文件），**勿**解压覆盖 **`.cursor/skills/`**。*
 
 *仅当用户任务涉及外来压缩包/仓库、外来领域包参考、技能移植(portability)、或要对齐「索引·触发词·关联度」机制时，才 Read 下列文件；**禁止**在宿主业务日常开发中自动展开，以免降低触发效率。*
 
-*   **桥接 SKILL（窄触发）**: `.cursor/skills/external-cursor-pack-bridge/SKILL.md`（外来包落位路径、单文件路由、蜂群纪律三句）
+*   **桥接 SKILL（窄触发）**: `.cursor/skills/external-cursor-pack-bridge/SKILL.md`（外来包落位路径、单文件路由、蜂群纪律三句；§0 术语与 `.cursor` 适用约定）
 *   **机制对表 + 4+1 用法**: `.cursor/skills/hajimi-dog/03_AI行为准则\15_外部Cursor技能包桥接索引.md`
     *   *🔗技能链条*: [热度权重: 2] `蜂群规则与技能体系维护指南` | [热度权重: 2] `任务驱动型四角色对抗开发工作流` | [热度权重: 1] `技能体系维护与进化`

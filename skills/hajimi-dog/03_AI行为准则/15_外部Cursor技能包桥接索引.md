@@ -1,6 +1,6 @@
 ---
 name: external-cursor-pack-bridge-index
-description: 外来 cursor_skills 包与本仓库蜂群/治理体系的机制对表与索引路由；仅在用户涉及外来包、移植方法论、跨工程技能索引时 Read。宿主业务日常开发优先读 00_全局索引。
+description: 外来第三方技能包（压缩包/仓库）与本仓库蜂群/治理体系的机制对表与索引路由；仅在用户涉及外来包、移植方法论、跨工程技能索引时 Read。宿主业务日常开发优先读 00_全局索引。Cursor 本仓技能根为 .cursor/skills/，勿与外来导入区混名。
 ---
 
 # 外部 Cursor 技能包 · 桥接索引（机制对齐，不合并领域正文）
@@ -8,10 +8,10 @@ description: 外来 cursor_skills 包与本仓库蜂群/治理体系的机制对
 ## 1. 目标
 
 - **保留** 现有 **角色（R1–R4 + 统帅）**、**`.mdc` 强制条款**、**全局索引 + 热度链条** 的触发效率。
-- **增加** 与外来 `cursor_skills` 包（解压后的 `cursor_skills/` 目录）之间的 **显式路由**，便于在**正确任务**下借鉴其 **INDEX / 触发词 / 关联度 / 工作流** 做法。
-- **禁止**：把外来包中**异工程领域**文档批量迁入本仓库技能树。
+- **增加** 与 **外来第三方技能包**（对方仓库内层可能仍名 `cursor_skills/`，属**他方结构名**）之间的 **显式路由**，便于在**正确任务**下借鉴其 **INDEX / 触发词 / 关联度 / 工作流** 做法。
+- **禁止**：把外来包中**异工程领域**文档批量迁入本仓库 **`.cursor/skills/`** 树；**禁止**将外来解压目录直接当 **Cursor 项目技能根** 使用。
 
-**外来根路径（默认约定 · 相对仓库根）**：`_import_cursor_skills/cursor_skills/`（若解压到别处，在本文件与 `external-cursor-pack-bridge/SKILL.md` 同步改一行说明即可。）  
+**外来根路径（导入暂存区 · 默认约定 · 相对仓库根）**：`_import/external-cursor-skills/`（旧约定 `_import_cursor_skills/cursor_skills/` 若仍在用，在本文件与 `external-cursor-pack-bridge/SKILL.md` **同步一行**实际路径即可。）  
 **桥接 SKILL（窄描述、防误触发）**：`.cursor/skills/external-cursor-pack-bridge/SKILL.md`
 
 **GitLab 可读副本**：`docs/cursor-governance/external-pack-bridge/15-外部技能包桥接索引.md`
@@ -27,7 +27,7 @@ description: 外来 cursor_skills 包与本仓库蜂群/治理体系的机制对
 | `workflows/维护断点与续作.md` | 换对话前写断点 | `.mdc` **蜂群记忆与跨轮接力**、`resume`、`.cursor/swarm` 指针 | 不把外来断点文件当本仓库强制路径 |
 | `workflows/虚拟任务skills体系执行预演.md` | 预演查阅链、不真执行 | `01_虚拟任务计划展示`、`09_任务驱动型四角色对抗开发工作流` | 预演不能绕过写码回合门禁 |
 | `workflows/技能文档更新与Git提交.md` | 文档变更 + Git 习惯 | `12_蜂群规则与技能体系维护指南` | 外来 commit 规范不覆盖本仓库治理 |
-| `portability/*` / `SKILL.md` 形态 | 可移植包、多 IDE 导出 | 用户侧可用 Codex `skill-installer`；本仓库 **不嵌** 外来 SKILL 正文 | 不把 portability 当产品依赖 |
+| `portability/*` / `SKILL.md` 形态 | 可移植包、多 IDE 导出 | **Cursor** 侧落地应对齐 **`.cursor/skills/<name>/SKILL.md`**；若用 CLI/其他安装器，目标路径仍须与此一致；本仓库 **不嵌** 外来 SKILL 正文 | 不把 portability 当产品依赖 |
 | `指南/…/附录B-快速索引.md` | 「我想…→章节」矩阵 | 本文件 + 全局索引章节标题 | 不合并附录正文 |
 | 外来包内各**垂直领域目录**（示例名因包而异） | — | **无业务对位** | **仅**当用户任务确属该工程时经桥接 **Read**，否则零加载 |
 
