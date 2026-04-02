@@ -4,9 +4,15 @@
 
 ## 必须遵守的权威源
 
-- `.cursor/rules/hajimidog-legion.mdc`（激活条件、六阶段、**LEGION-COMPLIANCE**、**禁止绕过封闭枚举**、叶 OP 与蜂群关系、**LEGION_LITE** / **FROZEN-BUNDLE**、与蜂群底线并集取严）
+- `.cursor/rules/hajimidog-legion.mdc`（激活条件、六阶段、**EX/MG/OP 与叶 OP 末端 L2 一律 Sub-agent Task**、**LEGION-COMPLIANCE**、**禁止绕过封闭枚举**、**LEGION_LITE** / **FROZEN-BUNDLE**、与蜂群底线并集取严）
 - 末端执行仍受蜂群约束：`.cursor/rules/hajimidog-4plus1-swarm.mdc`
 - 入口摘要：`AGENTS.md`
+
+## Sub-agent 强制（阶段五起 · 与 `legion.mdc` 一致）
+
+- **L3**：冻结架构中 **每一个 EX / MG / OP 节点**（含同层多节点）在 **阶段五** 须 **各至少一次** 独立 **Task Sub-agent**，**禁止**主对话分节冒充。
+- **L2 蜂群**：每一承担 **末端交付** 的 **叶 OP**，须由该 OP 的 Task（队内 +1）对 **R1、R2、R3、R4a、R4b** **分别** 派发 **Sub-agent Task**（满编五段 + 蜂群 `.mdc` 时序闸门）；**无末端蜂群**时我会接受你在 **LEGION-COMPLIANCE** 标 **`L2_SWARM=NONE`**。**豁免**须我明示蜂群豁免口令（如 `免子代理` / `跳过 R3R4` 等）。
+- **军团统帅（+1）** 仍驻主对话，**不为统帅单开 Task**。
 
 ## 起手与路由
 

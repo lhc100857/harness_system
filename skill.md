@@ -99,7 +99,7 @@ description: |
 
 | 优先级 | 路径 | 说明 |
 |--------|------|------|
-| P0 | `.cursor/rules/hajimidog-legion.mdc` | 军团激活、六阶段、**禁止需求降级**、**波次架构门禁**、叶 OP 强制满编蜂群；**LEGION-COMPLIANCE**、**禁止绕过封闭枚举**、多波次再基线、**LEGION_LITE** / **FROZEN-BUNDLE** |
+| P0 | `.cursor/rules/hajimidog-legion.mdc` | 军团激活、六阶段、**EX/MG/OP 与叶 OP 末端 L2 全 Sub-agent Task**、**禁止需求降级**、**波次架构门禁**；**LEGION-COMPLIANCE**、**禁止绕过封闭枚举**、多波次再基线、**LEGION_LITE** / **FROZEN-BUNDLE** |
 | P0 | `.cursor/rules/hajimidog-4plus1-swarm.mdc` | 末端仍由蜂群执行；底线不收窄；强触发 **S1–S5** 与军团 Read **并集** |
 | P1 | `.cursor/skills/hajimi-dog/03_AI行为准则/18_军团模式组织架构动态生成.md` | EX/MG/OP、DAG、冻结三件套 |
 | P1 | `.cursor/skills/hajimi-dog/03_AI行为准则/19_军团模式军令状与信息穿透.md` | 军令状、穿透、环境附录 |
@@ -145,7 +145,7 @@ description: |
 ## 三、双模式叠加（叶 OP · 满编蜂群 · 高风险）
 
 - **军团已激活时的 +1 义务**：除 **`.cursor/rules/hajimidog-legion.mdc`** 全文外，须落实 **LEGION-COMPLIANCE**（首段 `PHASE_MIN_DONE` 等）、**禁止倒序交付**、**封闭枚举禁止绕过**；欲减轻落盘须用户明示 **`LEGION_LITE`**（见该文件专节），**禁止**助手自拟「任务小」跳阶段。
-- **叶 OP 强制满编蜂群**：见 **`.cursor/rules/hajimidog-legion.mdc`** 专条；与 **蜂群 `.mdc` 满编口令/闸门**叠加取严。
+- **叶 OP 与末端 L2 蜂群**（阶段五末端交付即 **R1–R4b 各 Task**）：见 **`hajimidog-legion.mdc`** 专条；与 **蜂群 `.mdc` 满编口令/闸门**叠加取严。
 - **高风险 / 改 `.mdc` 语义 / 集成层拍板**：蜂群 `.mdc`「高风险回合」「跨会话裁决落盘」+ 技能 **`12`**、**`14`**，并视情况 **`13`**（LLM/HTTP）。
 - **领域不熟 / 升格**：技能 **`11`**（Phase A/B + R2/R3/R1 编排）。
 
