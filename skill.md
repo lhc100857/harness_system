@@ -4,7 +4,7 @@ description: |
   【.cursor 总路由】当用户或任务涉及：蜂群、4+1、满编蜂群、五段满编、R1/R2/R3/R4、R4a/R4b、子代理、Task、对抗模式、形状保持、冻结、验收、P0、PASS/FAIL、记忆接力、CHAIN-STATE、统帅/主帅、实现轨外置、写码回合、第三方 LLM/API 集成；
   或：军团、军团模式、L3、Legion、多部门、组织架构、兵团、EX/MG/OP、军团三级指挥、军令状、穿透、回声校验、叶 OP、满编军团、六阶段、Phase Gate、众人拾柴、skill-candidates、LEGION-COMPLIANCE、LEGION_LITE、轻量军团、禁止绕过、倒序交付、非工程领域阶段二、FROZEN-BUNDLE；
   或：改 .mdc 规则、技能维护、skills_linter、跨会话落盘、RECENT-DECISIONS、外来第三方技能包桥接/移植（导入区非 `.cursor/skills/` 宿主树）；
-  或：**禁止需求降级**、**ARCHITECTURE_USER_GATE**、**WAVE≥3**、**多波次再基线**、**R1/R2 Task 论证压缩**——须先读本文件，再按下文「必读顺序」批量 Read 对应 rules、skills 与 swarm 文档。日常纯业务编码且与治理无关时可不读。
+  或：**反降级总闸**（非用户明示豁免不得降级）、**统帅治理白名单**、**主帅改业务仓**/业务口令、**禁止需求降级**、**ARCHITECTURE_USER_GATE**、**WAVE≥3**、**多波次再基线**、**R1/R2 Task 论证压缩**——须先读本文件，再按下文「必读顺序」批量 Read 对应 rules、skills 与 swarm 文档。日常纯业务编码且与治理无关时可不读。
 ---
 
 # `.cursor` 总索引 Skill（Master Router）
@@ -45,9 +45,11 @@ description: |
 
 | 优先级 | 路径 | 说明 |
 |--------|------|------|
-| P0 | `.cursor/rules/hajimidog-4plus1-swarm.mdc` | 蜂群强制条款：编队闸门、写码回合 R3+R4a+R4b、R2 强制、R4 实测、豁免口令等 |
+| P0 | `.cursor/rules/hajimidog-4plus1-swarm.mdc` | 蜂群强制条款：**反降级总闸**、编队闸门、写码回合 R3+R4a+R4b、R2 强制、R4 实测、治理白名单与业务口令、豁免封闭枚举等 |
 | P1 | `.cursor/skills/hajimi-dog/00_全局索引/SKILL.md` | 技能总树 + 热度链条；**从这里选下一跳** |
+| P1 | `.cursor/skills/hajimi-dog/03_AI行为准则/07_蜂群-技能开发指引与守则.md` | 编写/维护蜂群技能的详细规范、常见陷阱、技能分层、例外管理 |
 | P1 | `.cursor/skills/hajimi-dog/03_AI行为准则/12_蜂群规则与技能体系维护指南.md` | **强触发 / 写码回合 / 改 `.mdc` 语义**：TC 模板、转化表、规范栈与 `.mdc` 对表（与 `.mdc`「触发词强制 Read」S3 对齐） |
+| P1 | `.cursor/skills/hajimi-dog/03_AI行为准则/14_蜂群子技能与多节点裁决管理.md` | 子技能组合管理、裁决一致性、批量落盘、跨 Task 匹配与追踪 |
 | P1 | `.cursor/skills/hajimi-dog/03_AI行为准则/16_蜂群触发路由与形状保持.md` | **话术 → Read 路由**；分层触发；形状保持；续聊 delta（与 `.mdc` S4 对齐） |
 | P2 | `.cursor/skills/hajimi-dog/03_AI行为准则/09_任务驱动型四角色对抗开发工作流.md` | 四角色 + 统帅落地流程，与 `.mdc` S5 对齐 |
 | P2 | `.cursor/skills/hajimi-dog/03_AI行为准则/14_蜂群可验证结论与跨会话裁决落盘.md` | A/B/C、RECENT-DECISIONS、证据回灌；**高风险 / 改规则 / 集成拍板**时与 P1 同级 |
@@ -120,6 +122,8 @@ description: |
 | R3 | `.cursor/skills/hajimi-dog/03_AI行为准则/18_军团模式组织架构动态生成.md` |
 | R4 | `.cursor/skills/hajimi-dog/03_AI行为准则/19_军团模式军令状与信息穿透.md` |
 | R5 | `.cursor/skills/hajimi-dog/03_AI行为准则/20_军团模式回声校验与规模裁量.md` |
+| R6 | `.cursor/skills/hajimi-dog/03_AI行为准则/21_军团众人拾柴与技能候选沉淀.md` |
+| R7 | `.cursor/skills/hajimi-dog/03_AI行为准则/22_主帅上下文生命周期管理.md` |
 
 **扩展（多波次 / 众人拾柴 / 主帅记忆 · 默认强制）**：`21`、`22` 全文 Read；若走渐进军令状闭环，另须 **Read** `.cursor/swarm/legion/PORTING-PROMPT-PROGRESSIVE-CHARTER-LOOP.zh-CN.md` **§4–§6**（与军团 `.mdc` 渐进取口互指）。
 
