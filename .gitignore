@@ -47,3 +47,4 @@ swarm/legion/skill-candidates/**
 swarm/legion/rollups/**
 !swarm/legion/rollups/README.md
 agents/runs/**
+!agents\runs\_ROLE-MD-FULL-TEMPLATE.md
