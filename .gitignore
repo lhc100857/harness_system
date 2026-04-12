@@ -46,3 +46,4 @@ swarm/legion/skill-candidates/**
 # ROLLUP 可选落盘位（仅保留目录说明时可取消下行否定规则）
 swarm/legion/rollups/**
 !swarm/legion/rollups/README.md
+agents/runs/**

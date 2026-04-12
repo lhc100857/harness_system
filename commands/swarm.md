@@ -4,12 +4,21 @@
 
 ## 必须遵守的权威源
 
-- `.cursor/rules/hajimidog-4plus1-swarm.mdc`（编队时序闸门、写码回合 **R3+R4a+R4b**、R2 强制触发、R4 清单实测与 PASS/FAIL、豁免口令等）
+- `.cursor/rules/hajimidog-4plus1-swarm.mdc`（编队时序闸门、写码回合 **R3+R4a+R4b**、R2 强制触发、R4 清单实测与 PASS/FAIL、豁免口令、**统帅白名单**含 **`.cursor/agents/runs/`** 链级固化等）
 - 与军团叠加时：`.cursor/rules/hajimidog-legion.mdc` 与之 **并集取严**（见 `AGENTS.md`）
+
+## 角色固化（派发 Task 前必读 · 稳定 ROLE_DEF 与 Task 触发）
+
+- **`AGENTS.md`**：固化目的、**(α)(β)(γ)** 顺序、与 **Task Sub-agent** 关系（盘稿**不替代** Task）。
+- **`.cursor/agents/README.md`**：盘稿首要目的、固化时机、主窗口与 Task 边界、主帅收口检查清单。
+- **蜂群 `.mdc`** 整文件 P0；至少扫读 **「Sub-agent 使用方式」** 下 **「角色 MD 真源」**：**盘稿首要目的**、**固化时机 (α)(β)(γ)**、**`## 本链绑定`** / **`### 最近派发 Task 摘要`**、**`ROLE_DEF=`**、**禁止**零差异化模板副本。
+- **链上盘稿与脚手架（路径相对仓库根）**：
+  - 生产链：`META.md` + `swarm-r1.md` … `swarm-r4b.md` 置于 **`.cursor/agents/runs/<CHAIN-ID>/`**
+  - Fork 起点（勿当生产 CHAIN 改写）：**`.cursor/agents/runs/_TEMPLATE-SWARM-B4P1/`**（五段模板，已含绑定与 Task 摘要占位节）
 
 ## 起手与路由
 
-- 命中强触发时按 `.mdc` 完成 **S1–S5** 最小 Read 集；总路由速查：`.cursor/skill.md` 第一节 → 按需下钻 `.cursor/skills/hajimi-dog/00_全局索引/SKILL.md` 与技能 **09 / 12 / 16 / 22** 等。
+- 命中强触发时按 `.mdc` 完成 **S1–S5** 最小 Read 集；总路由速查：`.cursor/skill.md` 第一节（含 **§1.2.2 角色固化路径**）→ 按需下钻 `.cursor/skills/hajimi-dog/00_全局索引/SKILL.md` 与技能 **09 / 12 / 16 / 22** 等。
 
 ## 执行纪律（摘要）
 

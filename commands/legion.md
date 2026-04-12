@@ -4,9 +4,17 @@
 
 ## 必须遵守的权威源
 
-- `.cursor/rules/hajimidog-legion.mdc`（激活条件、六阶段、**EX/MG/OP 与叶 OP 末端 L2 一律 Sub-agent Task**、**LEGION-COMPLIANCE**、**禁止绕过封闭枚举**、**LEGION_LITE** / **FROZEN-BUNDLE**、与蜂群底线并集取严）
-- 末端执行仍受蜂群约束：`.cursor/rules/hajimidog-4plus1-swarm.mdc`
-- 入口摘要：`AGENTS.md`
+- `.cursor/rules/hajimidog-legion.mdc`（激活条件、六阶段、**EX/MG/OP 与叶 OP 末端 L2 一律 Sub-agent Task**、**LEGION-COMPLIANCE**、**`ROLE_MD`**、**「L3 角色 MD 固化与蜂群 ROLE_DEF 并集」**含 **架构调整/多波次边际**、**禁止绕过封闭枚举**、**LEGION_LITE** / **FROZEN-BUNDLE**、与蜂群底线并集取严）
+- 末端执行仍受蜂群约束：`.cursor/rules/hajimidog-4plus1-swarm.mdc`（**Sub-agent 使用方式**、**角色 MD 真源**、**(α)(β)(γ)**、**统帅白名单**含 **`runs/`**）
+- 入口摘要：**`AGENTS.md`**；角色固化实操：**`.cursor/agents/README.md`**
+
+## 角色固化（派发 L3 / 叶 OP L2 Task 前必读 · 与蜂群并集）
+
+- **`AGENTS.md`**、**`.cursor/agents/README.md`**：军团与蜂群共用的 **ROLE_DEF**、**META**、**本链绑定**、**最近派发 Task 摘要**、**(α)(β)(γ)**、**`ROLE_MD`** 自检。
+- **军团 `.mdc`**：专条 **「L3 角色 MD 固化与蜂群 ROLE_DEF 并集」**（落盘 **`legion-*.md`**、叶 OP **`swarm-*.md`**、时点与 **架构/WAVE 变更后再固化**）；门禁动作前须完成 **`runs/<CHAIN-ID>/` 落盘与 `ROLE_DEF=` 自检**（见该文件阶段五与 Read 清单互指）。
+- **链上盘稿与脚手架（路径相对仓库根）**：
+  - 生产链：**`.cursor/agents/runs/<CHAIN-ID>/`** → **`META.md`** + 各节点 **`legion-*.md`**（一节点一文件）+ 叶 OP 所需 **`swarm-r1.md`…`swarm-r4b.md`**
+  - Fork 起点：**`.cursor/agents/runs/_TEMPLATE-LEGION-L3/`**（`legion-ex-sample.md`、`legion-mg-sample.md`、`legion-op-leaf-sample.md`）；末端 L2 五段：**`.cursor/agents/runs/_TEMPLATE-SWARM-B4P1/`**（**勿**将 **`_TEMPLATE-*`** 当生产 **CHAIN-ID** 改写）
 
 ## Sub-agent 强制（阶段五起 · 与 `legion.mdc` 一致）
 
@@ -20,7 +28,7 @@
 - **阶段三**输出可编辑架构后，须 **`ARCHITECTURE_USER_GATE`**：取得我对**本轮波次**的显式确认（含 `NO_CHANGE` 留痕）后，方可阶段四/五。
 - **第二波及后续（`WAVE≥2`）**：每波须 **再基线** 阶段二～四；**第三波及以降**还须 **统帅层/军令状上下文更新 → 新架构 → 我确认 → 冻结 → 再执行 → 阶段六输出**（详见 `legion.mdc`）。
 - **禁止需求降级**：不得默认砍阶段、砍节点、合并 L3；若主张压缩须 **R1/R2 各至少一次 Task** 论证 + 我明示或结构化豁免（见 `legion.mdc`）。
-- 总路由：`.cursor/skill.md` **§2.2 / §2.2.1 / §2.4** → 技能 **18～22** + 蜂群 `.mdc` **S1–S5 并集**；落盘见 `.cursor/swarm/legion/`。
+- 总路由：`.cursor/skill.md` **§1.2.2 / §2.2 / §2.2.1 / §2.3（agents）/ §2.4** → 技能 **18～22** + 蜂群 `.mdc` **S1–S5 并集**；落盘见 `.cursor/swarm/legion/`。
 
 ## 术语提醒
 

@@ -4,7 +4,7 @@ description: |
   【.cursor 总路由】当用户或任务涉及：蜂群、4+1、满编蜂群、五段满编、R1/R2/R3/R4、R4a/R4b、子代理、Task、对抗模式、形状保持、冻结、验收、P0、PASS/FAIL、记忆接力、CHAIN-STATE、统帅/主帅、实现轨外置、写码回合、第三方 LLM/API 集成；
   或：军团、军团模式、L3、Legion、多部门、组织架构、兵团、EX/MG/OP、军团三级指挥、军令状、穿透、回声校验、叶 OP、满编军团、六阶段、Phase Gate、众人拾柴、skill-candidates、LEGION-COMPLIANCE、LEGION_LITE、轻量军团、禁止绕过、倒序交付、非工程领域阶段二、FROZEN-BUNDLE；
   或：改 .mdc 规则、技能维护、skills_linter、跨会话落盘、RECENT-DECISIONS、外来第三方技能包桥接/移植（导入区非 `.cursor/skills/` 宿主树）；
-  或：**反降级总闸**（非用户明示豁免不得降级）、**统帅治理白名单**、**主帅改业务仓**/业务口令、**禁止需求降级**、**ARCHITECTURE_USER_GATE**、**WAVE≥3**、**多波次再基线**、**R1/R2 Task 论证压缩**——须先读本文件，再按下文「必读顺序」批量 Read 对应 rules、skills 与 swarm 文档。日常纯业务编码且与治理无关时可不读。
+  或：**反降级总闸**（非用户明示豁免不得降级）、**统帅治理白名单**（含 **`.cursor/agents/runs/`** 链级固化）、**角色 MD 真源**与 **固化时机 (α)(β)(γ)**、**`ROLE_DEF=`**、**主帅改业务仓**/业务口令、**禁止需求降级**、**ARCHITECTURE_USER_GATE**、**WAVE≥3**、**多波次再基线**、**R1/R2 Task 论证压缩**——须先读本文件，再按下文「必读顺序」批量 Read 对应 rules、skills 与 swarm 文档。日常纯业务编码且与治理无关时可不读。
 ---
 
 # `.cursor` 总索引 Skill（Master Router）
@@ -24,9 +24,9 @@ description: |
 
 | 命令 | 文件 | 用途 |
 |------|------|------|
-| `/swarm` | `swarm.md` | 蜂群 / 4+1 · L2：闸门、写码回合 R3+R4a+R4b、Task 隔离、Read 路由摘要 |
-| `/legion` | `legion.md` | 军团 L3：六阶段、LEGION-COMPLIANCE、禁止绕过、与蜂群并集取严 |
-| `/swarm-full` | `swarm-full.md` | **满编蜂群**五段（R1–R4b）+ 时序闸门 + Task 首行锚点 |
+| `/swarm` | `swarm.md` | 蜂群 / 4+1 · L2：闸门、写码回合 R3+R4a+R4b、Task 隔离、**角色固化必读**、Read 路由摘要 |
+| `/legion` | `legion.md` | 军团 L3：六阶段、LEGION-COMPLIANCE、**`ROLE_MD`/角色固化必读**、禁止绕过、与蜂群并集取严 |
+| `/swarm-full` | `swarm-full.md` | **满编蜂群**五段（R1–R4b）+ 时序闸门 + Task 首行锚点 + **runs/ 固化路径** |
 
 **说明**：权威条款仍以 `.cursor/rules/hajimidog-4plus1-swarm.mdc` 与 `hajimidog-legion.mdc` 为准；上表命令仅为 **等价口令模板**，便于少打字触发同一套纪律。
 
@@ -45,7 +45,7 @@ description: |
 
 | 优先级 | 路径 | 说明 |
 |--------|------|------|
-| P0 | `.cursor/rules/hajimidog-4plus1-swarm.mdc` | 蜂群强制条款：**反降级总闸**、编队闸门、写码回合 R3+R4a+R4b、R2 强制、R4 实测、治理白名单与业务口令、豁免封闭枚举等 |
+| P0 | `.cursor/rules/hajimidog-4plus1-swarm.mdc` | 蜂群强制条款：**反降级总闸**、编队闸门、写码回合 R3+R4a+R4b、R2 强制、R4 实测、治理白名单（含 **`.cursor/agents/runs/`** 链级固化）与业务口令、**Sub-agent 使用方式**（**角色 MD 真源**、**固化时机 αβγ**、**`ROLE_DEF=`**、盘稿首要目的）、豁免封闭枚举等 |
 | P1 | `.cursor/skills/hajimi-dog/00_全局索引/SKILL.md` | 技能总树 + 热度链条；**从这里选下一跳** |
 | P1 | `.cursor/skills/hajimi-dog/03_AI行为准则/07_蜂群-技能开发指引与守则.md` | 编写/维护蜂群技能的详细规范、常见陷阱、技能分层、例外管理 |
 | P1 | `.cursor/skills/hajimi-dog/03_AI行为准则/12_蜂群规则与技能体系维护指南.md` | **强触发 / 写码回合 / 改 `.mdc` 语义**：TC 模板、转化表、规范栈与 `.mdc` 对表（与 `.mdc`「触发词强制 Read」S3 对齐） |
@@ -72,6 +72,20 @@ description: |
 
 **军团已激活**：本表与军团 `.mdc`「触发时强制 Read」**并集**执行，汇流标注 **`READ_MIN_DONE=yes`** 并列出已读路径（一行可摘要）。
 
+#### 1.2.2 角色固化（派发蜂群 Task 前 · 与 `.mdc`「Sub-agent 使用方式」对表）
+
+**目的**：稳定 **Task 工具 Sub-agent** 触发与 **`ROLE_DEF=`** 对账；盘稿**不替代** Task（详见 **`AGENTS.md`**）。**派发 R1/R2/R3/R4a/R4b Task 前**建议完成下列 Read（可与 S1–S5 并行，**不得**用本表替代 P0 `.mdc` 全文义务）：
+
+| 优先级 | 路径 | 说明 |
+|--------|------|------|
+| P0 | `.cursor/rules/hajimidog-4plus1-swarm.mdc` | 已列于上表；须含 **「角色 MD 真源」** 全节 |
+| P1 | `AGENTS.md` | 入口摘要：**固化目的**、**(α)(β)(γ)**、**Task 与主窗口边界** |
+| P1 | `.cursor/agents/README.md` | **盘稿首要目的**、固化时机、主帅收口检查清单、`runs/` 与 UI 点选说明 |
+| P2 | `.cursor/agents/runs/_TEMPLATE-SWARM-B4P1/` | 五段 **fork 脚手架**（`swarm-r1.md`…`swarm-r4b.md`，含 **`## 本链绑定`** / **`### 最近派发 Task 摘要`** 占位）；**禁止**将 `_TEMPLATE-*` 当生产 **CHAIN-ID** 改写 |
+| — | `.cursor/agents/runs/<CHAIN-ID>/` | **生产链**落盘：`META.md` + 各 `swarm-*.md`（存在则 Read 以校对本轮 **ROLE_DEF**） |
+
+**Slash 命令对齐**：`/swarm`、`/swarm-full` 正文已嵌入上列路径摘要。
+
 ### 1.3 蜂群关联 swarm 文档（契约/移植/统帅）
 
 | 路径 | 何时读 |
@@ -83,6 +97,9 @@ description: |
 | `.cursor/swarm/PORTING-PROMPT-XWM.zh-CN.md` | XWM 外置工作记忆移植 |
 | `.cursor/swarm/渐进式记忆.md` / `PORTING-PROMPT-PROGRESSIVE-MEMORY-ASK.zh-CN.md` | 渐进披露 + Ask 回合 |
 | `.cursor/swarm/RECENT-DECISIONS.md` | 跨会话拍板简报（存在则优先扫一眼） |
+| `AGENTS.md` | **角色固化**与蜂群/军团入口摘要；**Task 触发**与 **(α)(β)(γ)** 顺序 |
+| `.cursor/agents/README.md` | **角色 MD 真源**实操：`runs/<CHAIN-ID>/` 与 Task **对账**、**本链绑定**、**最近派发 Task 摘要**、**`ROLE_DEF=`**、主帅收口清单；见蜂群 `.mdc`「Sub-agent 使用方式」 |
+| `.cursor/agents/runs/_TEMPLATE-SWARM-B4P1/` | 蜂群五段 **fork 起点**（勿当生产链改写） |
 
 ---
 
@@ -101,7 +118,7 @@ description: |
 
 | 优先级 | 路径 | 说明 |
 |--------|------|------|
-| P0 | `.cursor/rules/hajimidog-legion.mdc` | 军团激活、六阶段、**EX/MG/OP 与叶 OP 末端 L2 全 Sub-agent Task**、**禁止需求降级**、**波次架构门禁**；**LEGION-COMPLIANCE**、**禁止绕过封闭枚举**、多波次再基线、**LEGION_LITE** / **FROZEN-BUNDLE** |
+| P0 | `.cursor/rules/hajimidog-legion.mdc` | 军团激活、六阶段、**EX/MG/OP 与叶 OP 末端 L2 全 Sub-agent Task**、**「L3 角色 MD 固化与蜂群 ROLE_DEF 并集」**（**`ROLE_MD`**、架构/WAVE 变更后再固化）、**禁止需求降级**、**波次架构门禁**；**LEGION-COMPLIANCE**、**禁止绕过封闭枚举**、多波次再基线、**LEGION_LITE** / **FROZEN-BUNDLE** |
 | P0 | `.cursor/rules/hajimidog-4plus1-swarm.mdc` | 末端仍由蜂群执行；底线不收窄；强触发 **S1–S5** 与军团 Read **并集** |
 | P1 | `.cursor/skills/hajimi-dog/03_AI行为准则/18_军团模式组织架构动态生成.md` | EX/MG/OP、DAG、冻结三件套 |
 | P1 | `.cursor/skills/hajimi-dog/03_AI行为准则/19_军团模式军令状与信息穿透.md` | 军令状、穿透、环境附录 |
@@ -127,6 +144,22 @@ description: |
 
 **扩展（多波次 / 众人拾柴 / 主帅记忆 · 默认强制）**：`21`、`22` 全文 Read；若走渐进军令状闭环，另须 **Read** `.cursor/swarm/legion/PORTING-PROMPT-PROGRESSIVE-CHARTER-LOOP.zh-CN.md` **§4–§6**（与军团 `.mdc` 渐进取口互指）。
 
+#### 2.2.2 角色固化（派发 L3 / 叶 OP L2 Task 前 · 与蜂群 `.mdc` 并集）
+
+**门禁动作前**（见军团 `.mdc`：派发 **任一 L3 角色 Task** 前等）须与蜂群 **「角色 MD 真源」** **并集取严**。建议 Read：
+
+| 优先级 | 路径 | 说明 |
+|--------|------|------|
+| P0 | `.cursor/rules/hajimidog-legion.mdc` | **「L3 角色 MD 固化与蜂群 ROLE_DEF 并集」** 全条（含 **时点**、**架构调整与多波次边际**、**违约处理**） |
+| P0 | `.cursor/rules/hajimidog-4plus1-swarm.mdc` | **Sub-agent 使用方式**（与军团同构的 **runs/**、`ROLE_DEF`、**(α)(β)(γ)**） |
+| P1 | `AGENTS.md` | **`ROLE_MD`**、固化与 Task 触发摘要 |
+| P1 | `.cursor/agents/README.md` | 军团 + 蜂群共用的 **runs/** 纪律与收口清单 |
+| P2 | `.cursor/agents/runs/_TEMPLATE-LEGION-L3/` | **`legion-ex-sample.md`**、**`legion-mg-sample.md`**、**`legion-op-leaf-sample.md`**（fork 起点） |
+| P2 | `.cursor/agents/runs/_TEMPLATE-SWARM-B4P1/` | 叶 OP 末端 L2 五段 **fork 起点** |
+| — | `.cursor/agents/runs/<CHAIN-ID>/` | 生产链 **`META.md`** + **`legion-*.md`** + 所需 **`swarm-*.md`**（存在则 Read 校对 **ROLE_DEF**） |
+
+**Slash 命令对齐**：`/legion` 正文已嵌入上列路径摘要。
+
 ### 2.3 军团关联 swarm 文档
 
 | 路径 | 何时读 |
@@ -137,6 +170,10 @@ description: |
 | `.cursor/swarm/legion/PORTING-PROMPT-LEGION-MIN-REBUILD.zh-CN.md` | 外机最小复刻军团 |
 | `.cursor/swarm/legion/PORTING-PROMPT-PROGRESSIVE-CHARTER-LOOP.zh-CN.md` | **WAVE≥2、渐进口径、波次收口**：再启检查表与 **F** / **§5–§6** |
 | `.cursor/swarm/legion/skill-candidates/` | 众人拾柴；波次收口与用户升格提问 |
+| `AGENTS.md` | 军团 + 蜂群入口；**`ROLE_MD`**、**角色固化**与 **Task** 边界 |
+| `.cursor/agents/README.md` | **L3/L2 角色 MD** 落盘、`legion-*.md` / `swarm-*.md`、**`ROLE_DEF=`**、与蜂群并集 |
+| `.cursor/agents/runs/_TEMPLATE-LEGION-L3/` | 军团节点 **fork 脚手架**（勿当生产 **CHAIN-ID**） |
+| `.cursor/agents/runs/_TEMPLATE-SWARM-B4P1/` | 叶 OP 队内蜂群五段 **fork 脚手架** |
 
 ### 2.4 第三波及多波次（WAVE≥2）额外纪律（摘要 · 权威在 `legion.mdc`）
 
